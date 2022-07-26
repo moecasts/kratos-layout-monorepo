@@ -1,0 +1,3 @@
+consul:
+  address: ${CONSUL_ADDRESS:localhost:8500}
+  scheme: ${CONSUL_SCHEME:http}

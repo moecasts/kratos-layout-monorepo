@@ -1,0 +1,30 @@
+server:
+  http:
+    enable: true
+    addr: ${HTTP_ADDRESS:0.0.0.0:8000}
+    timeout: 1s
+  grpc:
+    enable: true
+    addr: ${GRPC_ADDRESS:0.0.0.0:9000}
+    timeout: 1s
+  mux:
+    enable: false
+    network: tcp
+    addr: ${MUX_ADDRESS:0.0.0.0:23333}
+    timeout: 1s
+  pulsar:
+    enable: false
+    addr: ${PULSAR_ADDRESS:0.0.0.0:9092}
+    timeout: 1s
+data:
+  database:
+    driver: postgres
+    source: "host=${POSTGRES_HOST:localhost} user=default password=secret dbname=test port=${POSTGRES_PORT:5432} sslmode=disable TimeZone=Asia/Shanghai"
+  redis:
+    addr: ${REDIS_ADDRESS:127.0.0.1:6379}
+    read_timeout: 0.2s
+    write_timeout: 0.2s
+  pulsar:
+    addr: ${PULSAR_ADDRESS:127.0.0.1:6650}
+    operation_timeout: 30s
+    connection_timeout: 30s
